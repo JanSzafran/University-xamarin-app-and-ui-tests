@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:d="http://xamarin.com/schemas/2014/forms/design"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+             mc:Ignorable="d"
+             x:Class="App1.MainPage">
+
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Add"
+                     AutomationId="Add"
+                     Activated="ToolbarItem_Activated"/>
+    </ContentPage.ToolbarItems>
+
+    <ListView x:Name="booksListView">
+        <ListView.ItemTemplate>
+            <DataTemplate>
+                <ViewCell>
+                    <StackLayout Orientation="Horizontal">
+                        <Label Text="{Binding Name}"/>
+                        <Label Text="{Binding Author}"/>
+                        <Button Text="Delete" Clicked="Button_Clicked" BindingContext="{Binding Id}"/>
+                        <Button Text="Edit" Clicked="Edit" BindingContext="{Binding Id}"/>
+                    </StackLayout>
+                </ViewCell>
+            </DataTemplate>
+        </ListView.ItemTemplate>
+    </ListView>
+</ContentPage>
